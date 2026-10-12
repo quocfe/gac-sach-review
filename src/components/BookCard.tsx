@@ -1,0 +1,2 @@
+import Link from 'next/link'; import { Book } from '@/lib/catalog';
+export function BookCard({book}:{book:Book}){return <article className={`book-card ${book.tone}`}><div className="cover" aria-label={`Bìa minh họa ${book.title}`}><span>MỘC<br/>BẢN</span></div><div><p className="eyebrow">{book.genres[0]}</p><h3><Link href={`/books/${book.slug}`}>{book.title}</Link></h3><p className="muted">{book.author}</p><p><strong>★ {book.rating}</strong> <span className="muted">· {book.reviews} review</span></p></div></article>}

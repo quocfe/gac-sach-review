@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gác Sách Review
 
-## Getting Started
+Next.js + TypeScript V1 prototype for a moderated Vietnamese book-review community.
 
-First, run the development server:
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Verify
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run test:e2e
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Demo behavior
 
-## Learn More
+- Development uses an intentionally local repository (`src/lib/catalog.ts`) and browser localStorage for session demo, ratings, shelves and composer drafts.
+- Demo identity is a member. Admin and moderator screens expose role-oriented UI only; no credentials are embedded.
+- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` are present only as empty environment names in `.env.example`, so an Auth.js/Prisma adapter can replace the local seam.
+- All cover art is rendered placeholder typography; no images were scraped or re-hosted.
 
-To learn more about Next.js, take a look at the following resources:
+## Data seam
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`src/lib/catalog.ts` is the read repository seam; `src/lib/services.ts` owns the rating/bookshelf/review invariants. Replace those modules with Prisma/PostgreSQL repositories while retaining the UI contract. The planned database variables remain in `.env.example`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Limitations
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This implementation is a local demo, not production authentication or persistent moderation. Google OAuth requires registered credentials and an Auth.js adapter; PostgreSQL/Prisma migrations are intentionally omitted to ensure the app runs without external services.

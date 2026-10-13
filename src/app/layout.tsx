@@ -1,3 +1,3 @@
 import type { Metadata } from 'next'; import './globals.css';
-export const metadata: Metadata = { title:'Gác Sách Review', description:'Cộng đồng review sách Việt Nam' };
+export const metadata: Metadata = { metadataBase: new URL('https://mocban.example'), title:{default:'Gác Sách Review',template:'%s · Gác Sách Review'},description:'Cộng đồng review sách Việt Nam: đọc sâu hơn, cùng nhau.',alternates:{canonical:'/'},openGraph:{type:'website',locale:'vi_VN',siteName:'Gác Sách Review',title:'Gác Sách Review',description:'Cộng đồng review sách Việt Nam.'},robots:{index:true,follow:true} };
 export default function Layout({children}:{children:React.ReactNode}){return <html lang="vi"><body>{children}</body></html>}

@@ -7,8 +7,8 @@
   --accent: #9c432f;
   --forest: #30483c;
   --soft: #ecebe1;
-  --serif: Georgia, "Times New Roman", serif;
-  --sans: "Trebuchet MS", Arial, sans-serif;
+  --serif: "Source Serif 4 Variable", Georgia, serif;
+  --sans: "Source Sans 3 Variable", Arial, sans-serif;
 }
 * {
   box-sizing: border-box;

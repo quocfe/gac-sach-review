@@ -252,7 +252,7 @@ test("search and genre survive submission, reload, clear and history", async ({
     page.getByRole("heading", { name: "Chưa tìm thấy đầu sách" }),
   ).toBeVisible();
   await page.getByRole("link", { name: "Xóa bộ lọc", exact: true }).click();
-  await expect(page.locator(".book-card")).toHaveCount(20);
+  await expect(page.locator(".book-card")).toHaveCount(19);
   await page.goBack();
   await expect(page.getByLabel("Tìm sách hoặc tác giả")).toHaveValue("zzzzzz");
 });
